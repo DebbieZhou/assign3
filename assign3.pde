@@ -69,26 +69,28 @@ if(bgx>=640){
  // xEn++;
  // xEn %= 640;                  //enemy
  switch(gameState){         
-  case attackOne: 
+  case attackOne:
     if(yEn<=419 && yEn>=0){
       for(int i=0;i<5;i++){
            image(enemyImg,xEn-i*a,yEn);
            xEn+=1;}}
     if(xEn-i*a>width+240){
     gameState=attackTwo;
-    xEn=0;}
+    xEn=0;
+    yEn= random(0,180);}
  break;
   case attackTwo:
-  if(yEn<=height-305 && yEn>=61){
+  if(yEn<=180 && yEn>=0){
       for(int j=0;j<5;j++){
       image(enemyImg,xEn-j*a,yEn+j*a);
       xEn+=1;}}
       if(xEn-j*a>width+240){
     gameState=attackThr;
-    xEn=0;}
+    xEn=0;
+  yEn= random(122,297);}
 break;
   case attackThr:
-     if(yEn<=height-305 && yEn>=61){
+     if(yEn<=297 && yEn>=122){
       for(int k=0;k<3;k++){
       image(enemyImg,xEn-k*a,yEn-k*a);
       image(enemyImg,xEn-k*a,yEn+k*a);
@@ -97,7 +99,8 @@ break;
       xEn+=1;}}
     if(xEn-k*a>width+240){
     gameState=attackOne;
-    xEn=0; }
+    xEn=0; 
+    yEn= random(0,419);}
 break;
 }}
 void keyPressed(){
